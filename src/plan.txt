@@ -1,0 +1,25 @@
+### Typing test in javascript
+
+Goal :
+- user can take a quick test to check his/her typing speed
+- time selection for user
+- results with accuracy and speed at end of test
+
+Technical details :
+- prompt user for username to display
+- screen with time selection and then display sentences on upper screen with appropriate ratio
+- the cursor should move forward with each correct key press and show red for character for which wrong key was pressed
+- calculate the accuracy and speed and show the net and actual typing speed to user (For now do it in js on client side no need for backend) 
+
+Pages required :
+
+-: display :- 
+- username 
+- display of sentences 
+- coloring of characters 
+- metrics after completion
+
+-: service layer :-
+- sentence generation service
+- metric calculation service
+- typing tracking service

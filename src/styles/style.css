@@ -82,6 +82,48 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.char {
+  position: relative;
+  font-size: 20px;
+  transition: color 0.2s;
+  display: inline-block;
+}
+
+.char.correct {
+  color: #4caf50;
+}
+.char.incorrect {
+  color: #f44336;
+}
+
+#result {
+  margin-top: 2rem;
+  background: #222;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+}
+
+#typing-area {
+  position: relative;
+}
+
+#caret {
+  position: absolute;
+  width: 2px;
+  height: 24px;
+  background: black;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

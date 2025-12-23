@@ -7,7 +7,7 @@ export function renderWords(textArray) {
     const span = document.createElement("span");
     span.textContent = char;
     span.dataset.index = index;
-    span.classList.add(char == +" " ? "space" : "char");
+    span.classList.add(char === " " ? "space" : "char");
 
     textdisplay.appendChild(span);
   });

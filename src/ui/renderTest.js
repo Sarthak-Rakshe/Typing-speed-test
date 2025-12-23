@@ -29,5 +29,5 @@ export function renderTest({ username, timeInSec }) {
   typingArea.append(textDisplay, caret);
 
   rootDiv.append(navbar, typingArea);
-  console.log(timeInSec);
+  // console.log(timeInSec);
 }

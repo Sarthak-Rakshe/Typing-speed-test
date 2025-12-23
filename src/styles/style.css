@@ -8,6 +8,7 @@
 }
 
 #typing-area {
+  position: relative;
   margin: 10px;
   padding: 5px;
   border: 2px solid #000;
@@ -19,20 +20,24 @@
 .user-input {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   font-size: 16px;
-  margin-top: 10px;
+  margin-top: 10%;
 }
 
 #name-input,
 #time-input {
   margin-bottom: 10px;
-  padding: 8px;
-  font-size: 16px;
+  padding: 6px;
+  font-size: 20px;
 }
 
 #start-button {
+  width: 20%;
   margin-top: 10px;
   padding: 8px;
   font-size: 16px;
@@ -40,4 +45,34 @@
   color: white;
   border: none;
   cursor: pointer;
+}
+
+#text-display {
+  position: relative;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 22px;
+  line-height: 1.6em;
+  color: #9c9c9c;
+}
+
+.char,
+.space {
+  margin: 1px;
+  display: inline-block;
+}
+
+#caret {
+  position: absolute;
+  width: 3px;
+  height: 2em;
+  background: black;
+  animation: blink 1s step-end infinite;
+  margin-left: 3px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }

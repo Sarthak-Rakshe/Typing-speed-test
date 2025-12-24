@@ -63,6 +63,15 @@
   display: inline-block;
 }
 
+.wrong-char {
+  color: red;
+  text-decoration: underline;
+}
+
+.typed {
+  color: black;
+}
+
 #caret {
   position: absolute;
   width: 3px;

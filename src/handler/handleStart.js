@@ -13,10 +13,7 @@ export async function handleStart() {
 
   const originalWordsArr = await handleWords();
 
-  const typingInstance = initTyping({
-    originalWordsArr,
-    typingTrackerServiceInstance,
-  });
+  const typingInstance = initTyping(originalWordsArr);
 
   handleTimer({
     typingTrackerServiceInstance,

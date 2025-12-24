@@ -2,13 +2,23 @@ import { timerService } from "../services/timerService";
 import { renderTime } from "../ui/renderTime";
 import { handleEndTest } from "./handleEndTest";
 
-export function handleTimer() {
+export function handleTimer({
+  typingTrackerServiceInstance,
+  typingInstance,
+  originalWordsArr,
+}) {
   const time = document.getElementById("time-input");
-  const timerInsatance = timerService({
-    timeInSec: time.textContent,
+
+  const timerInstance = timerService({
+    timeInSec: Number(time.textContent),
     onTick: renderTime,
-    onEnd: handleEndTest,
+    onEnd: () =>
+      handleEndTest({
+        typingTrackerServiceInstance,
+        typingInstance,
+        originalWordsArr,
+      }),
   });
 
-  timerInsatance.start();
+  timerInstance.start();
 }

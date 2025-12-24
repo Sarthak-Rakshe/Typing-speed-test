@@ -1,13 +1,13 @@
-import { typingTrackerService } from "../services/typingTrackerService";
 import { moveCaret } from "../ui/moveCaret";
 
 let currentIndex = 0;
 let inputString = "";
 
-export function initTyping(originalWordsArr) {
+export function initTyping({ originalWordsArr, typingTrackerServiceInstance }) {
   const typingArea = document.getElementById("typing-area");
   const totalChars = document.querySelectorAll("#text-display span").length;
-  // console.log(totalChars);
+  const time = document.getElementById("time-input").textContent;
+
   typingArea.tabIndex = 0;
   typingArea.focus();
 
@@ -15,13 +15,13 @@ export function initTyping(originalWordsArr) {
 
   typingArea.addEventListener("keydown", (event) => {
     if (event.key === " ") {
-      event.preventDefault(); //
+      event.preventDefault();
     }
     if (event.key.length !== 1 && event.key !== "Backspace") return;
 
     if (event.key === "Backspace") {
       if (currentIndex > 0) currentIndex--;
-      if (!inputString) {
+      if (inputString.length > 0) {
         inputString = inputString.slice(0, -1);
       }
     } else {
@@ -30,11 +30,11 @@ export function initTyping(originalWordsArr) {
     }
 
     moveCaret(currentIndex);
-    const results = typingTrackerService({
-      inputText: inputString,
-      originalTextArr: originalWordsArr,
-    });
-
-    return results;
   });
+
+  return {
+    getInput() {
+      return inputString;
+    },
+  };
 }

@@ -4,7 +4,8 @@
   align-items: center;
   padding: 5px 15px;
   margin: 10px;
-  background-color: #ac83f7;
+  background-color: #f5d984;
+  border: 1px solid #000;
 }
 
 #typing-area {
@@ -69,6 +70,23 @@
   background: black;
   animation: blink 1s step-end infinite;
   margin-left: 3px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+  font-size: 18px;
+  width: 30%;
+  background-color: #f5d984;
+  border: 1px solid #000;
+}
+
+label {
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 @keyframes blink {

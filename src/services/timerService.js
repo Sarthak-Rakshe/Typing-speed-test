@@ -1,4 +1,4 @@
-export function timerService({ timeInSec, onTick, onEnd }) {
+export function timerService({ timeInSec, onTick, onEnd, typingService }) {
   let remainingTime = timeInSec;
   let intervalId = null;
 
@@ -10,13 +10,12 @@ export function timerService({ timeInSec, onTick, onEnd }) {
     intervalId = setInterval(() => {
       if (remainingTime <= 0) {
         stop();
-        onEnd();
+        onEnd(typingService);
         return;
       }
 
       remainingTime -= 1;
 
-      //   console.log(remainingTime);
       onTick(remainingTime);
     }, 1000);
   }

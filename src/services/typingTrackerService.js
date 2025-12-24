@@ -1,21 +1,31 @@
-export function typingTrackerService({ inputText, originalTextArr }) {
-  const timeInMin = originalTextArr.length / 3 / 60;
-  const originalText = originalTextArr.join(" ");
-  const inputTextSize = inputText.length;
+export function typingTrackerService() {
+  let rawWPM = 0;
+  let accuracy = 0;
+  let WPM = 0;
 
-  const rawWPM = inputText.length / 5 / timeInMin;
+  function calculateResults({ inputText, originalTextArr }) {
+    const timeInMin = originalTextArr.length / 3 / 60;
+    const originalText = originalTextArr.join(" ");
+    const inputTextSize = inputText.length;
 
-  let correctChars = 0;
-  for (let i = 0; i < inputTextSize; i++) {
-    if (inputText[i] === originalText[i]) correctChars++;
+    rawWPM = Math.round(inputText.length / 5 / timeInMin);
+
+    let correctChars = 0;
+    for (let i = 0; i < inputTextSize; i++) {
+      if (inputText[i] === originalText[i]) correctChars++;
+    }
+
+    accuracy = Math.round((correctChars / inputTextSize) * 100);
+    WPM = Math.round(rawWPM * (accuracy / 100));
   }
 
-  const accuracy = (correctChars / inputTextSize) * 100;
-  const WPM = rawWPM * (accuracy / 100);
+  function getResults() {
+    return {
+      rawWPM,
+      accuracy,
+      WPM,
+    };
+  }
 
-  return {
-    rawWPM,
-    accuracy,
-    WPM,
-  };
+  return { calculateResults, getResults };
 }
